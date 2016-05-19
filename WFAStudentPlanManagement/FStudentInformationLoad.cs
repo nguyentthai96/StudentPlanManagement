@@ -1,5 +1,5 @@
 ﻿using StudentPlanManagementData.Models;
-using StudentPlanManagementData.Business;
+using StudentPlanManagementBusiness;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace WFAStudentPlanManagement
 {
-    public partial class FStudentInformation : Form
+    public partial class FStudentInformationLoad : Form
     {
         private string strStudentId;
         CStudentEntity student;
-        public FStudentInformation(string strStudentId)
+        public FStudentInformationLoad(string strStudentId)
         {
             this.strStudentId = strStudentId;
             InitializeComponent();
@@ -30,7 +30,7 @@ namespace WFAStudentPlanManagement
 
         private bool loadComponent()
         {
-              this.student= new CStudentBusiness().loadStudentInfor(this.strStudentId);
+              this.student= CStudentBusiness.loadStudentInfor(this.strStudentId);
             if (student==null)
             {
                 MessageBox.Show("Error load data!");
@@ -73,6 +73,7 @@ namespace WFAStudentPlanManagement
             image = Image.FromStream(memoryStream);
             return image;
         }
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
