@@ -66,6 +66,11 @@ namespace WFAStudentPlanManagement.FormAccount
             {
                 this.Close();
             }
+            else
+            {
+                MessageBox.Show("Error change password.");
+                return;
+            }
             return;
         }
 

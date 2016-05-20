@@ -52,7 +52,14 @@ namespace StudentPlanManagementBusiness
             try
             {
                 dbContext = new StudentPlanManagementContext();
-                dbContext.Entry(student).State = EntityState.Modified;
+                //Todo dùng nhưng thất bại student.Account = CAccountBusiness.loadAccount(student.StudentId);
+                //ToDo làm sao dung dươc nếu là quan hệ one to one dbContext.Entry(student).State = EntityState.Modified;
+                var studentNew=dbContext.StudentEntities.Find(student.StudentId);
+                studentNew.StudentName = student.StudentName;
+                studentNew.Genders = student.Genders;
+                studentNew.DateOfBirth = student.DateOfBirth;
+                studentNew.Address = student.Address;
+                studentNew.StudentImage = student.StudentImage;
                 int countSave = dbContext.SaveChanges();
                 if ( countSave== 0)
                 {
