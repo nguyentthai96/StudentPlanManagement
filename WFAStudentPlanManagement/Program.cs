@@ -20,7 +20,7 @@ namespace WFAStudentPlanManagement
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FStudentInformationEdit("134"));
+            Application.Run(new FormAccount.FAccountAdd());
         }
     }
 }

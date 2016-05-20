@@ -10,7 +10,7 @@ namespace StudentPlanManagementData.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = false;
+            AutomaticMigrationDataLossAllowed = true;
             ContextKey = "StudentPlanManagementData.StudentPlanManagementContext";
         }
 

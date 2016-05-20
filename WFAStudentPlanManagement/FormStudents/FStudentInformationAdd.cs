@@ -95,7 +95,7 @@ namespace WFAStudentPlanManagement
         private void btnSave_Click(object sender, EventArgs e)
         {
             CStudentEntity student = dataStudent();
-            if (CStudentBusiness.editStudent(student) == false)
+            if (CStudentBusiness.addStudent(student) == false)
             {
                 MessageBox.Show("Save failure!");
                 return;
