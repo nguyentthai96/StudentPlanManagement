@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{270FAC55-A424-4E19-9736-2B4562DD7A24}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>StudentPlanManagementData</RootNamespace>
     <AssemblyName>StudentPlanManagementData</AssemblyName>
@@ -57,9 +57,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomModels\CSemesterEntityCSubjectsEntity.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CAccountEntity.cs" />
+    <Compile Include="Models\CDurationActive.cs" />
+    <Compile Include="Models\CInstructorEntity.cs" />
+    <Compile Include="Models\CMarksEntity.cs" />
+    <Compile Include="Models\CPlanEntity.cs" />
+    <Compile Include="Models\CScheduleEntity.cs" />
+    <Compile Include="Models\CSemesterEntity.cs" />
     <Compile Include="Models\CStudentEntity.cs" />
+    <Compile Include="Models\CSubjectsEntity.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentPlanManagementInitializer.cs" />

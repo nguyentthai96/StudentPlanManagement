@@ -62,16 +62,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormAccount\FAccountAdd.cs">
+    <Compile Include="FormAccounts\FAccountAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAccount\FAccountAdd.Designer.cs">
+    <Compile Include="FormAccounts\FAccountAdd.Designer.cs">
       <DependentUpon>FAccountAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAccount\FAccountEditPassword.cs">
+    <Compile Include="FormAccounts\FAccountEditPassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAccount\FAccountEditPassword.Designer.cs">
+    <Compile Include="FormAccounts\FAccountEditPassword.Designer.cs">
       <DependentUpon>FAccountEditPassword.cs</DependentUpon>
     </Compile>
     <Compile Include="FormStudents\FStudentInformationLoad.cs">
@@ -94,10 +94,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormAccount\FAccountAdd.resx">
+    <EmbeddedResource Include="FormAccounts\FAccountAdd.resx">
       <DependentUpon>FAccountAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAccount\FAccountEditPassword.resx">
+    <EmbeddedResource Include="FormAccounts\FAccountEditPassword.resx">
       <DependentUpon>FAccountEditPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormStudents\FStudentInformationLoad.resx">
@@ -149,6 +149,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\student-male-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FormSubjects\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

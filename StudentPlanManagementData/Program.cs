@@ -12,8 +12,8 @@ namespace StudentPlanManagementData
         static void Main(string[] args)
         {
             Database.SetInitializer<StudentPlanManagementContext>(new StudentPlanManagementInitializer());
-            StudentPlanManagementContext dbContext = new StudentPlanManagementContext();
-            dbContext.StudentEntities.Select(st=>st);
+            StudentPlanManagementContext context = new StudentPlanManagementContext();
+            context.StudentEntities.Select(st=>st);
         }
     }
 }
