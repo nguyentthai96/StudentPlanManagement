@@ -77,6 +77,12 @@
     <Compile Include="FormAccounts\FAccountEditPassword.Designer.cs">
       <DependentUpon>FAccountEditPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPlan\FPlanAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPlan\FPlanAdd.Designer.cs">
+      <DependentUpon>FPlanAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSchedules\FScheduleRegisterSubject.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAccounts\FAccountEditPassword.resx">
       <DependentUpon>FAccountEditPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPlan\FPlanAdd.resx">
+      <DependentUpon>FPlanAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSchedules\FScheduleRegisterSubject.resx">
       <DependentUpon>FScheduleRegisterSubject.cs</DependentUpon>
@@ -162,9 +171,7 @@
   <ItemGroup>
     <None Include="Resources\student-male-512.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="FormSubjects\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

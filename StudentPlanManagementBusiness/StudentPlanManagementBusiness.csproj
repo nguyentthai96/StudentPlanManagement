@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="CAccountBusiness.cs" />
     <Compile Include="CInstructorBusness.cs" />
+    <Compile Include="CPlanBusiness.cs" />
     <Compile Include="CScheduleBusiness.cs" />
     <Compile Include="CStudentBusiness.cs" />
     <Compile Include="CSubjectBusness.cs" />

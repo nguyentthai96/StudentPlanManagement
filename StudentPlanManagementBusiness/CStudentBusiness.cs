@@ -80,5 +80,11 @@ namespace StudentPlanManagementBusiness
             }
             return true;
         }
+
+        public static CStudentEntity getStudentData(string strStudentId)
+        {
+            dbContext = new StudentPlanManagementContext();
+            return dbContext.StudentEntities.SingleOrDefault(s => s.StudentId == strStudentId);
+        }
     }
 }
