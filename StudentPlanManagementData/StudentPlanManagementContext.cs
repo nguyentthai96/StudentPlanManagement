@@ -24,6 +24,7 @@ namespace StudentPlanManagementData
         public virtual DbSet<CSubjectsEntity> SubjectsEntities { get; set; }
         public virtual DbSet<CInstructorEntity> InstructorEntities { get; set; }
         public virtual DbSet<CSemesterEntityCSubjectsEntity> SubjectsTakesEntities { get; set; }
+        public virtual DbSet<CScheduleEntity> ScheduleEntities { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<CAccountEntity>()

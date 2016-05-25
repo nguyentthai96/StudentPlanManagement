@@ -28,11 +28,20 @@ namespace StudentPlanManagementData.Models
                 dWeekOfDay = (DayOfWeek)Array.IndexOf(DayWeek, value.ToString());
             }
         }
-        
-        private DayOfWeek dWeekOfDay;
 
+        public int SetWeekOfDayTypeInt
+        {
+            set
+            {
+                dWeekOfDay = (DayOfWeek)value;
+            }
+        }
+
+        private DayOfWeek dWeekOfDay;
+        public TimeSpan TimeStart { get; set; }
+        public TimeSpan TimeEnd { get; set; }
         public string ClassRom { get; set; }
-        public CDurationActive TimeStudy { get; set; }
+      
         public virtual CSemesterEntityCSubjectsEntity Take { get; set; }
     }
 }

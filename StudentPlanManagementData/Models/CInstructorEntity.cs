@@ -12,5 +12,6 @@ namespace StudentPlanManagementData.Models
         [Key]
         public int InstructorId { get; set; }
         public string InstructorName { get; set; }
+        public virtual CSubjectsEntity Subject { get; set; }
     }
 }
