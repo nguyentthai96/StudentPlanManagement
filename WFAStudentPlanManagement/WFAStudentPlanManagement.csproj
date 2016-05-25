@@ -77,10 +77,16 @@
     <Compile Include="FormAccounts\FAccountEditPassword.Designer.cs">
       <DependentUpon>FAccountEditPassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPlan\FPlanAdd.cs">
+    <Compile Include="FormMarks\FMarkAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPlan\FPlanAdd.Designer.cs">
+    <Compile Include="FormMarks\FMarkAdd.Designer.cs">
+      <DependentUpon>FMarkAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPlans\FPlanAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPlans\FPlanAdd.Designer.cs">
       <DependentUpon>FPlanAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSchedules\FScheduleRegisterSubject.cs">
@@ -88,6 +94,12 @@
     </Compile>
     <Compile Include="FormSchedules\FScheduleRegisterSubject.Designer.cs">
       <DependentUpon>FScheduleRegisterSubject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSchedules\FScheduleTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSchedules\FScheduleTable.Designer.cs">
+      <DependentUpon>FScheduleTable.cs</DependentUpon>
     </Compile>
     <Compile Include="FormStudents\FStudentInformationLoad.cs">
       <SubType>Form</SubType>
@@ -109,13 +121,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StudentPlanManagementBusiness\CMarkBusiness.cs" />
     <EmbeddedResource Include="FormAccounts\FAccountAdd.resx">
       <DependentUpon>FAccountAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAccounts\FAccountEditPassword.resx">
       <DependentUpon>FAccountEditPassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPlan\FPlanAdd.resx">
+    <EmbeddedResource Include="FormMarks\FMarkAdd.resx">
+      <DependentUpon>FMarkAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPlans\FPlanAdd.resx">
       <DependentUpon>FPlanAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSchedules\FScheduleRegisterSubject.resx">

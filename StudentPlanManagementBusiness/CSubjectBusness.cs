@@ -17,5 +17,16 @@ namespace StudentPlanManagementBusiness
             lists = dbContext.SubjectsEntities.Select(s => s).ToList();
             return lists;
         }
+
+        public static List<CSubjectsEntity> loadListSubjectRegisted(string strStudentId, string strSemesterId)
+        {
+            dbContext = new StudentPlanManagementContext();
+            List<CSubjectsEntity> lists = new List<CSubjectsEntity>();
+            foreach (var take in dbContext.SubjectsTakesEntities)
+            {
+                lists.Add(take.Subject);
+            }
+            return lists;
+        }
     }
 }

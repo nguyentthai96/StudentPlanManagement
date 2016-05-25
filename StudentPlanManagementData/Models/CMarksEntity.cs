@@ -16,7 +16,7 @@ namespace StudentPlanManagementData.Models
         public float Score { get; set; }
         public float Ratio { get; set; }
         public DateTime DayOfMark { get; set; }
-
+        public string DescribeMark { get; set; }
         public virtual CSemesterEntityCSubjectsEntity Take { get; set; }
     }
 }

@@ -27,7 +27,7 @@ namespace StudentPlanManagementData.CustomModels
         public DateTime DateOfTake { get; set; }
 
         public virtual CSemesterEntity Semester { get; set; }
-        public virtual CSubjectsEntity Subjects { get; set; }
+        public virtual CSubjectsEntity Subject { get; set; }
        public virtual CStudentEntity Students { get; set; }
         
         public virtual ICollection<CMarksEntity> Marks { get; set; }

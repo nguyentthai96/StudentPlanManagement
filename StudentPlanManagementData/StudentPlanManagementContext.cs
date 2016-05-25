@@ -13,18 +13,18 @@ namespace StudentPlanManagementData
         {
             StudentEntities = Set<CStudentEntity>();
             AccountEntities = Set<CAccountEntity>();
-            PlanEnties = Set<CPlanEntity>();
         }
 
         public virtual DbSet<CAccountEntity> AccountEntities { get; set; }
         public virtual DbSet<CStudentEntity> StudentEntities { get; set; }
-        public virtual DbSet<CPlanEntity> PlanEnties { get; set; }
-
         public virtual DbSet<CSemesterEntity> SemesterEntities { get; set; }
         public virtual DbSet<CSubjectsEntity> SubjectsEntities { get; set; }
         public virtual DbSet<CInstructorEntity> InstructorEntities { get; set; }
         public virtual DbSet<CSemesterEntityCSubjectsEntity> SubjectsTakesEntities { get; set; }
         public virtual DbSet<CScheduleEntity> ScheduleEntities { get; set; }
+        public virtual DbSet<CPlanEntity> PlanEnties { get; set; }
+        public virtual DbSet<CMarksEntity> MarkEnties { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<CAccountEntity>()
