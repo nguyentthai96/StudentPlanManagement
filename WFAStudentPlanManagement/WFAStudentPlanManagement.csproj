@@ -137,6 +137,9 @@
     <EmbeddedResource Include="FormSchedules\FScheduleRegisterSubject.resx">
       <DependentUpon>FScheduleRegisterSubject.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSchedules\FScheduleTable.resx">
+      <DependentUpon>FScheduleTable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormStudents\FStudentInformationLoad.resx">
       <DependentUpon>FStudentInformationLoad.cs</DependentUpon>
     </EmbeddedResource>
