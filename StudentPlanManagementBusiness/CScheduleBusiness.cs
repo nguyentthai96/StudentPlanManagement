@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using StudentPlanManagementData.Models;
+using System.Data;
 
 namespace StudentPlanManagementBusiness
 {
@@ -39,6 +40,54 @@ namespace StudentPlanManagementBusiness
 
             dbContext.ScheduleEntities.Add(scheduleData);
             dbContext.SaveChanges();
+        }
+
+        public static DataTable loadScheduleFull(string strStudentId, string strSemesterId)
+        {
+            dbContext = new StudentPlanManagementContext();
+
+            DataTable table = new DataTable("ScheduleTableStudy");
+            table.Columns.Add("ScheduleId", typeof(string));
+            table.Columns.Add("ScheduleTitle", typeof(string));
+            table.Columns.Add("GetWeekOfDayTypeInt", typeof(int));
+            table.Columns.Add("TimeStart", typeof(DateTime));
+            table.Columns.Add("TimeEnd", typeof(DateTime));
+            table.Columns.Add("ClassRom", typeof(string));
+            table.Columns.Add("SubjectName", typeof(string));
+            foreach (var s in dbContext.ScheduleEntities)
+            {
+                DataRow dr = table.NewRow();
+                dr["ScheduleId"] = s.ScheduleId;
+                dr["ScheduleTitle"] = s.ScheduleTitle;
+                dr["GetWeekOfDayTypeInt"] = s.GetWeekOfDayTypeInt;
+                //TODO Tinh toan lai thoi gian dr["TimeStart"] = s.TimeStart;
+                //TODO Tinh toan lai thoi gian dr["TimeEnd"] = s.TimeEnd;
+                dr["ClassRom"] = s.ClassRom;
+                dr["SubjectName"] = s.Take.Subject.SubjectName;
+
+                #region Tinh toan thoi gian, hien thi lich hoc trong mot thang hien hanh va thang sau va thang truoc do
+                int iMonthNow=DateTime.Now.Month;
+                int iYearNow = DateTime.Now.Year;
+                iMonthNow--;
+                for (int nth = 0; nth < 32; nth++)
+                {
+                    DataRow drNew = dr;
+                    drNew["TimeStart"] = DateTime.Parse(DateTimeOfDayWeekInMont(iYearNow, iMonthNow, (DayOfWeek)s.GetWeekOfDayTypeInt, nth).ToShortDateString() + " " + s.TimeStart);
+                    drNew["TimeEnd"] = DateTime.Parse(DateTimeOfDayWeekInMont(iYearNow, iMonthNow, (DayOfWeek)s.GetWeekOfDayTypeInt, nth).ToShortDateString() + " " + s.TimeEnd);
+                    table.Rows.Add(drNew.ItemArray);
+                    table.ImportRow(drNew);
+                }
+                #endregion
+            }
+            return table;
+        }
+
+        private static DateTime DateTimeOfDayWeekInMont(int year, int month, DayOfWeek dayWeek, int nth)
+        {
+            DateTime result = new DateTime(year, month, 1);
+            while (result.DayOfWeek != dayWeek)
+                result = result.AddDays(1);
+            return result.AddDays(7 * (nth - 1));
         }
 
         public static void addScheduleNonRegisterSubjectSemester(CScheduleEntity scheduleData, StudentPlanManagementData.CustomModels.CSemesterEntityCSubjectsEntity takeSubjectSemester)

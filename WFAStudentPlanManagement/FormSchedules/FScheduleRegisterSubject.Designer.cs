@@ -290,6 +290,7 @@
             this.Controls.Add(this.lblSubject);
             this.Controls.Add(this.cmbSubject);
             this.Name = "FScheduleRegisterSubject";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Register Schedule Subject";
             this.Load += new System.EventHandler(this.FScheduleRegisterSubject_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cmbSubject.Properties)).EndInit();

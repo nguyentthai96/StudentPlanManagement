@@ -20,7 +20,11 @@ namespace WFAStudentPlanManagement
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMarks.FMarkAdd("123","HK4"));
+            //while(true)
+            //{
+            //    Application.Run(new FormSchedules.FScheduleRegisterSubject("123", "HK4"));
+            //}
+            Application.Run(new FormSchedules.FScheduleTable("123", "HK4"));
             
         }
     }

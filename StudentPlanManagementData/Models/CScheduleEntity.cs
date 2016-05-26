@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,11 +30,20 @@ namespace StudentPlanManagementData.Models
             }
         }
 
+        [NotMapped]
         public int SetWeekOfDayTypeInt
         {
             set
             {
                 dWeekOfDay = (DayOfWeek)value;
+            }
+        }
+        [NotMapped]
+        public int GetWeekOfDayTypeInt
+        {
+            get
+            {
+                return dWeekOfDay.GetHashCode();
             }
         }
 
