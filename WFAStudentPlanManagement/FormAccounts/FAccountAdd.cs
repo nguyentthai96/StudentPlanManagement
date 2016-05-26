@@ -9,10 +9,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WFAStudentPlanManagement.FormAccount
+namespace WFAStudentPlanManagement.FormAccounts
 {
     public partial class FAccountAdd : Form
     {
+        public delegate void AccountLoginHandler(string strSudentId, string strPassword);
+        public event AccountLoginHandler GetStudentIdLogin;
         private CAccountEntity acc;
         public FAccountAdd()
         {
@@ -61,6 +63,7 @@ namespace WFAStudentPlanManagement.FormAccount
             frmStudentInfor.ShowDialog();
             if (StudentPlanManagementBusiness.CAccountBusiness.addAccount(acc))
             {
+                AssginStudentId(this.acc.StudentId, acc.Password);
                 this.Close();
             }
             return;
@@ -69,6 +72,14 @@ namespace WFAStudentPlanManagement.FormAccount
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        protected void AssginStudentId(string strStudentId, string strPassword)
+        {
+            if (GetStudentIdLogin != null)
+            {
+                GetStudentIdLogin(strStudentId,strPassword);
+            }
         }
     }
 }

@@ -14,12 +14,10 @@ namespace WFAStudentPlanManagement.FormPlan
     public partial class FPlanAdd : Form
     {
         private string strStudentId;
-        private string strSemesterId;
         private CPlanEntity planData;
-        public FPlanAdd(string strStudentId, string strSemesterId)
+        public FPlanAdd(string strStudentId)
         {
             this.strStudentId = strStudentId;
-            this.strSemesterId = strSemesterId;
             InitializeComponent();
         }
 

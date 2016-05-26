@@ -65,6 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMain.Designer.cs">
+      <DependentUpon>FMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAccounts\FAccountAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,12 @@
     </Compile>
     <Compile Include="FormAccounts\FAccountEditPassword.Designer.cs">
       <DependentUpon>FAccountEditPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAccounts\FAccountSignIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAccounts\FAccountSignIn.Designer.cs">
+      <DependentUpon>FAccountSignIn.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMarks\FMarkAdd.cs">
       <SubType>Form</SubType>
@@ -121,11 +133,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FMain.resx">
+      <DependentUpon>FMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAccounts\FAccountAdd.resx">
       <DependentUpon>FAccountAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAccounts\FAccountEditPassword.resx">
       <DependentUpon>FAccountEditPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAccounts\FAccountSignIn.resx">
+      <DependentUpon>FAccountSignIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMarks\FMarkAdd.resx">
       <DependentUpon>FMarkAdd.cs</DependentUpon>
@@ -189,7 +207,12 @@
   <ItemGroup>
     <None Include="Resources\student-male-512.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\home2-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\places-home--512.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

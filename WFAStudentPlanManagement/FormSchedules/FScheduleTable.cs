@@ -51,7 +51,6 @@ namespace WFAStudentPlanManagement.FormSchedules
         void FillAppointmentsStorage(AppointmentCollection c)
         {
             DataTable dtSchedulerFill = new DataTable();
-
             dtSchedulerFill = StudentPlanManagementBusiness.CScheduleBusiness.loadScheduleFull(strStudentId,strSemesterId);
             for (int i = 0; i < dtSchedulerFill.Rows.Count; i++)
             {
@@ -59,12 +58,39 @@ namespace WFAStudentPlanManagement.FormSchedules
                 ap = schedulerControl.Storage.CreateAppointment(AppointmentType.Normal, DateTime.Now, DateTime.Now.AddDays(1), "Test appointment");
 
                 ap.Subject = dtSchedulerFill.Rows[i]["SubjectName"].ToString();
-                ap.Description = dtSchedulerFill.Rows[i]["ScheduleTitle"].ToString()+" "+ dtSchedulerFill.Rows[i]["ClassRom"].ToString();
+                ap.Description = dtSchedulerFill.Rows[i]["ScheduleTitle"].ToString();
+                ap.Location = dtSchedulerFill.Rows[i]["ClassRom"].ToString();
 
                 ap.Start =(DateTime)(dtSchedulerFill.Rows[i]["TimeStart"]);
                 ap.End = (DateTime)(dtSchedulerFill.Rows[i]["TimeEnd"]);
                
                 c.Add(ap);
+            }
+
+            List<StudentPlanManagementData.Models.CPlanEntity> listPlan;
+            listPlan = StudentPlanManagementBusiness.CPlanBusiness.loadPlanNowToLastMont(strStudentId);
+            foreach (StudentPlanManagementData.Models.CPlanEntity plan in listPlan)
+            {
+                Appointment ap = StaticAppointmentFactory.CreateAppointment(AppointmentType.Pattern);
+                ap = schedulerControl.Storage.CreateAppointment(AppointmentType.Normal, DateTime.Now, DateTime.Now.AddDays(1), "Test appointment");
+                ap.LabelId = 1; //ToDo mau cua su kien
+                ap.Subject = plan.PlanTitle;
+                ap.Description = plan.Contents+"\n"+plan.Describe;
+                
+
+                ap.Start = DateTime.Parse(plan.Duration.DateStart.ToShortDateString()+" " +plan.Duration.TimeStart);
+                ap.End = DateTime.Parse(plan.Duration.DateEnd.ToShortDateString() + " " + plan.Duration.TimeEnd);
+                c.Add(ap);
+
+                Appointment RemindAppointment = StaticAppointmentFactory.CreateAppointment(AppointmentType.Pattern);
+                RemindAppointment = schedulerControl.Storage.CreateAppointment(AppointmentType.Normal, DateTime.Now, DateTime.Now.AddDays(1), "Test appointment");
+
+                RemindAppointment.LabelId = 10; //ToDo mau cua nhac nho
+                RemindAppointment.Subject = plan.PlanTitle;
+                RemindAppointment.Start = DateTime.Parse(plan.DayofRemind.ToShortDateString());
+                RemindAppointment.End = DateTime.Parse(plan.Duration.DateStart.ToShortDateString() + " " + plan.Duration.TimeStart).AddDays(-1);
+                
+                c.Add(RemindAppointment);
             }
         }
 

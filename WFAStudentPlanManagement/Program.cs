@@ -24,7 +24,11 @@ namespace WFAStudentPlanManagement
             //{
             //    Application.Run(new FormSchedules.FScheduleRegisterSubject("123", "HK4"));
             //}
-            Application.Run(new FormSchedules.FScheduleTable("123", "HK4"));
+            //while (true)
+            //{
+            //    Application.Run(new FormPlan.FPlanAdd("123"));
+            //}
+            Application.Run(new FormAccounts.FAccountSignIn());
             
         }
     }

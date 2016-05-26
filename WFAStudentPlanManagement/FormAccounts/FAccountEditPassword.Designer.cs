@@ -1,4 +1,4 @@
-﻿namespace WFAStudentPlanManagement.FormAccount
+﻿namespace WFAStudentPlanManagement.FormAccounts
 {
     partial class FAccountEditPassword
     {

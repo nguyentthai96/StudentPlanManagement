@@ -1,6 +1,8 @@
 ﻿using System;
 using StudentPlanManagementData.Models;
 using System.Linq;
+using System.Collections.Generic;
+
 namespace StudentPlanManagementBusiness
 {
     public class CPlanBusiness
@@ -27,6 +29,16 @@ namespace StudentPlanManagementBusiness
             planData.Student = dbContext.StudentEntities.SingleOrDefault(s => s.StudentId == planData.Student.StudentId); //TODO tai sao loi da them o truoc ma
             dbContext.PlanEnties.Add(planData);
             dbContext.SaveChanges();
+        }
+
+        public static List<CPlanEntity> loadPlanNowToLastMont(string strStudentId)
+        {
+            DateTime dtNow = DateTime.Now;
+            dtNow.AddDays(-1);
+            dbContext = new StudentPlanManagementData.StudentPlanManagementContext();
+            List<CPlanEntity> lists = new List<CPlanEntity>();
+            lists = dbContext.PlanEnties.Where(p =>p.Student.StudentId.Equals(strStudentId) && p.DayofRemind > dtNow).ToList();
+            return lists;
         }
     }
 }

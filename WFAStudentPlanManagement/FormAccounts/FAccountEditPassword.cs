@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WFAStudentPlanManagement.FormAccount
+namespace WFAStudentPlanManagement.FormAccounts
 {
     public partial class FAccountEditPassword : Form
     {
