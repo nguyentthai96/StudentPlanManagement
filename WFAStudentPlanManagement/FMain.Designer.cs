@@ -35,9 +35,21 @@
             this.lblStudentName = new DevExpress.XtraEditors.LabelControl();
             this.btnHome = new DevExpress.XtraEditors.SimpleButton();
             this.xtraTabbedMdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.popupMenuAccount = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.pbtnEditStudentInfor = new DevExpress.XtraBars.BarButtonItem();
+            this.pbtnChangePassword = new DevExpress.XtraBars.BarButtonItem();
+            this.pbtnInitializerSubjectSchedule = new DevExpress.XtraBars.BarButtonItem();
+            this.pbtnSignOut = new DevExpress.XtraBars.BarButtonItem();
+            this.barManagerAccount = new DevExpress.XtraBars.BarManager(this.components);
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             ((System.ComponentModel.ISupportInitialize)(this.pnlTool)).BeginInit();
             this.pnlTool.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenuAccount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManagerAccount)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTool
@@ -69,6 +81,8 @@
             this.btnAddPlan.Size = new System.Drawing.Size(85, 85);
             this.btnAddPlan.TabIndex = 2;
             this.btnAddPlan.Tag = "Add Plan Event";
+            this.btnAddPlan.ToolTip = "Add Plan Event";
+            this.btnAddPlan.Click += new System.EventHandler(this.btnAddPlan_Click);
             // 
             // lblStudentName
             // 
@@ -80,6 +94,7 @@
             this.lblStudentName.Size = new System.Drawing.Size(173, 17);
             this.lblStudentName.TabIndex = 1;
             this.lblStudentName.Text = "Hello Nguyễn Thành Thái";
+            this.lblStudentName.Click += new System.EventHandler(this.lblStudentName_Click);
             // 
             // btnHome
             // 
@@ -94,28 +109,117 @@
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(85, 85);
             this.btnHome.TabIndex = 0;
-            this.btnHome.Tag = "Page Home";
-            this.btnHome.ToolTip = "Account Sign In";
-            this.btnHome.Click += new System.EventHandler(this.btnAccount_Click);
+            this.btnHome.Tag = "Page Home Student Study Schedule";
+            this.btnHome.ToolTip = "Page Home Student Study Schedule";
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // xtraTabbedMdiManager
             // 
             this.xtraTabbedMdiManager.MdiParent = this;
             // 
+            // popupMenuAccount
+            // 
+            this.popupMenuAccount.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.pbtnEditStudentInfor),
+            new DevExpress.XtraBars.LinkPersistInfo(this.pbtnChangePassword),
+            new DevExpress.XtraBars.LinkPersistInfo(this.pbtnInitializerSubjectSchedule),
+            new DevExpress.XtraBars.LinkPersistInfo(this.pbtnSignOut)});
+            this.popupMenuAccount.Manager = this.barManagerAccount;
+            this.popupMenuAccount.Name = "popupMenuAccount";
+            // 
+            // pbtnEditStudentInfor
+            // 
+            this.pbtnEditStudentInfor.Caption = "Edit Student Information";
+            this.pbtnEditStudentInfor.Id = 0;
+            this.pbtnEditStudentInfor.Name = "pbtnEditStudentInfor";
+            this.pbtnEditStudentInfor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.pbtnEditStudentInfor_ItemClick);
+            // 
+            // pbtnChangePassword
+            // 
+            this.pbtnChangePassword.Caption = "Change Password Account";
+            this.pbtnChangePassword.Id = 1;
+            this.pbtnChangePassword.Name = "pbtnChangePassword";
+            this.pbtnChangePassword.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.pbtnChangePassword_ItemClick);
+            // 
+            // pbtnInitializerSubjectSchedule
+            // 
+            this.pbtnInitializerSubjectSchedule.Caption = "Initializer Sujects and Schedule";
+            this.pbtnInitializerSubjectSchedule.Id = 2;
+            this.pbtnInitializerSubjectSchedule.Name = "pbtnInitializerSubjectSchedule";
+            this.pbtnInitializerSubjectSchedule.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.pbtnInitializerSubjectSchedule_ItemClick);
+            // 
+            // pbtnSignOut
+            // 
+            this.pbtnSignOut.Caption = "Sign out";
+            this.pbtnSignOut.Id = 3;
+            this.pbtnSignOut.Name = "pbtnSignOut";
+            this.pbtnSignOut.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.pbtnSignOut_ItemClick);
+            // 
+            // barManagerAccount
+            // 
+            this.barManagerAccount.DockControls.Add(this.barDockControlTop);
+            this.barManagerAccount.DockControls.Add(this.barDockControlBottom);
+            this.barManagerAccount.DockControls.Add(this.barDockControlLeft);
+            this.barManagerAccount.DockControls.Add(this.barDockControlRight);
+            this.barManagerAccount.Form = this;
+            this.barManagerAccount.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.pbtnEditStudentInfor,
+            this.pbtnChangePassword,
+            this.pbtnInitializerSubjectSchedule,
+            this.pbtnSignOut});
+            this.barManagerAccount.MaxItemId = 4;
+            // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(835, 0);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 566);
+            this.barDockControlBottom.Size = new System.Drawing.Size(835, 0);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 566);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(835, 0);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 566);
+            // 
             // FMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(835, 491);
+            this.ClientSize = new System.Drawing.Size(835, 566);
             this.Controls.Add(this.pnlTool);
+            this.Controls.Add(this.barDockControlLeft);
+            this.Controls.Add(this.barDockControlRight);
+            this.Controls.Add(this.barDockControlBottom);
+            this.Controls.Add(this.barDockControlTop);
             this.IsMdiContainer = true;
             this.Name = "FMain";
             this.Text = "Student Managerment Study";
+            this.Load += new System.EventHandler(this.FMain_Load);
+            this.Resize += new System.EventHandler(this.FMain_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.pnlTool)).EndInit();
             this.pnlTool.ResumeLayout(false);
             this.pnlTool.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenuAccount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManagerAccount)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -126,5 +230,15 @@
         private DevExpress.XtraEditors.LabelControl lblStudentName;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager;
         private DevExpress.XtraEditors.SimpleButton btnAddPlan;
+        private DevExpress.XtraBars.BarManager barManagerAccount;
+        private DevExpress.XtraBars.BarDockControl barDockControlTop;
+        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
+        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
+        private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraBars.BarButtonItem pbtnEditStudentInfor;
+        private DevExpress.XtraBars.BarButtonItem pbtnChangePassword;
+        private DevExpress.XtraBars.BarButtonItem pbtnInitializerSubjectSchedule;
+        private DevExpress.XtraBars.BarButtonItem pbtnSignOut;
+        private DevExpress.XtraBars.PopupMenu popupMenuAccount;
     }
 }

@@ -34,7 +34,7 @@ namespace StudentPlanManagementBusiness
         public static List<CPlanEntity> loadPlanNowToLastMont(string strStudentId)
         {
             DateTime dtNow = DateTime.Now;
-            dtNow.AddDays(-1);
+            dtNow.AddDays(-2);
             dbContext = new StudentPlanManagementData.StudentPlanManagementContext();
             List<CPlanEntity> lists = new List<CPlanEntity>();
             lists = dbContext.PlanEnties.Where(p =>p.Student.StudentId.Equals(strStudentId) && p.DayofRemind > dtNow).ToList();

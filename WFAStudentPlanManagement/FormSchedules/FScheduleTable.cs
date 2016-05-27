@@ -88,7 +88,7 @@ namespace WFAStudentPlanManagement.FormSchedules
                 RemindAppointment.LabelId = 10; //ToDo mau cua nhac nho
                 RemindAppointment.Subject = plan.PlanTitle;
                 RemindAppointment.Start = DateTime.Parse(plan.DayofRemind.ToShortDateString());
-                RemindAppointment.End = DateTime.Parse(plan.Duration.DateStart.ToShortDateString() + " " + plan.Duration.TimeStart).AddDays(-1);
+                RemindAppointment.End = DateTime.Parse(plan.Duration.DateStart.ToShortDateString() + " " + plan.Duration.TimeStart);
                 
                 c.Add(RemindAppointment);
             }

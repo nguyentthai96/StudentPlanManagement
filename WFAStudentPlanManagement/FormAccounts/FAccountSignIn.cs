@@ -18,9 +18,24 @@ namespace WFAStudentPlanManagement.FormAccounts
         private string strStudentId;
         private string strPassword;
         //ToDo delegate
+        Timer tmHello;
         public FAccountSignIn()
         {
             InitializeComponent();
+            tmHello = new Timer();
+            tmHello.Tick += TmHello_Tick;
+            tmHello.Interval = 18;
+            tmHello.Enabled = true;
+            lblHelo.Location = new Point(this.Width, lblHelo.Location.Y);
+        }
+
+        private void TmHello_Tick(object sender, EventArgs e)
+        {
+            if (lblHelo.Location.X < (-lblHelo.Width))
+            {
+                lblHelo.Location = new Point(this.Width, lblHelo.Location.Y);
+            }
+            lblHelo.Location = new Point(lblHelo.Location.X - 2, lblHelo.Location.Y);
         }
 
         #region Interface Event
@@ -172,7 +187,7 @@ namespace WFAStudentPlanManagement.FormAccounts
             }
             return strResult;
         }
-        private void checkAccountPassword()
+        private bool checkAccountPassword()
         {
             if (StudentPlanManagementBusiness.CAccountBusiness.checkPassword(strStudentId, strPassword))
             {
@@ -181,21 +196,26 @@ namespace WFAStudentPlanManagement.FormAccounts
                     writeFile();
                 }
                 //Get StudentId use in programming
-                if (LoginSuccessHandler!=null)
+                if (LoginSuccessHandler != null)
                 {
                     LoginSuccessHandler(strStudentId);
                 }
                 this.Close();
+                this.Dispose();
                 //Close Form as Login Success
+                return true;
             }
+            return false;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             strStudentId = txtAccountId.Text;
             strPassword = txtPassword.Text;
-            checkAccountPassword();
-            MessageBox.Show("Login fail, try enter...");
+            if (checkAccountPassword() == false)
+            {
+                MessageBox.Show("Login fail, try enter...");
+            }
         }
 
         private void chkRememberAccount_CheckedChanged(object sender, EventArgs e)
@@ -207,8 +227,10 @@ namespace WFAStudentPlanManagement.FormAccounts
                     DialogResult dr = MessageBox.Show("You are login account old...", "Yes/No question", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                     if (dr == DialogResult.OK)
                     {
-                        checkAccountPassword();
-                        MessageBox.Show("Account too old, cannot login.\nYou try a different account...");
+                        if (checkAccountPassword() == false)
+                        {
+                            MessageBox.Show("Account too old, cannot login.\nYou try a different account...");
+                        }
                     }
                 }
             }
@@ -226,7 +248,32 @@ namespace WFAStudentPlanManagement.FormAccounts
         {
             this.strStudentId = strStudentId;
             this.strPassword = strPassword;
-            checkAccountPassword();
+            this.Close();
+            this.Dispose();
+        }
+
+        private void FAccountSignIn_Resize(object sender, EventArgs e)
+        {
+            int x = (this.Width / 2 - txtAccountId.Location.X / 2);
+
+            txtAccountId.Location = new Point(x, txtAccountId.Location.Y);
+            txtPassword.Location = new Point(x, txtPassword.Location.Y);
+            btnLogin.Location = new Point(x, btnLogin.Location.Y);
+            chkRememberAccount.Location = new Point(x, chkRememberAccount.Location.Y);
+            hlblRegisterAccount.Location = new Point(x + btnLogin.Width - hlblRegisterAccount.Width, hlblRegisterAccount.Location.Y);
+        }
+
+        private void FAccountSignIn_Load(object sender, EventArgs e)
+        {
+            if (readFile() == true)
+            {
+                txtAccountId.Text = strStudentId;
+                txtAccountId.ForeColor = SystemColors.ControlText;
+                txtPassword.Text = strPassword;
+                txtPassword.ForeColor = SystemColors.ControlText;
+                txtPassword.Properties.PasswordChar = '*';
+                btnLogin.Focus();
+            }
         }
     }
 }

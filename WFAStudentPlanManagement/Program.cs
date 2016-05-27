@@ -28,7 +28,7 @@ namespace WFAStudentPlanManagement
             //{
             //    Application.Run(new FormPlan.FPlanAdd("123"));
             //}
-            Application.Run(new FormAccounts.FAccountSignIn());
+            Application.Run(new FMain());
             
         }
     }
