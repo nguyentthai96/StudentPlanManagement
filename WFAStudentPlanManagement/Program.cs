@@ -28,7 +28,7 @@ namespace WFAStudentPlanManagement
             //{
             //    Application.Run(new FormPlan.FPlanAdd("123"));
             //}
-            Application.Run(new FMain());
+            Application.Run(new FormMarks.FSummaryMarks("123", "HK4"));
             
         }
     }

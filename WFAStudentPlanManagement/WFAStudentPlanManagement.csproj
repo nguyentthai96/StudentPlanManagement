@@ -34,12 +34,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.ExpressApp.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Persistent.Base.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v15.2.Core, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Sparkline.v15.2.Core, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v15.2.Extensions, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraScheduler.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraScheduler.v15.2.Core, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -95,6 +101,12 @@
     <Compile Include="FormMarks\FMarkAdd.Designer.cs">
       <DependentUpon>FMarkAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormMarks\FSummaryMarks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMarks\FSummaryMarks.Designer.cs">
+      <DependentUpon>FSummaryMarks.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPlans\FPlanAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMarks\FMarkAdd.resx">
       <DependentUpon>FMarkAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMarks\FSummaryMarks.resx">
+      <DependentUpon>FSummaryMarks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPlans\FPlanAdd.resx">
       <DependentUpon>FPlanAdd.cs</DependentUpon>
