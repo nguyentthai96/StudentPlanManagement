@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FMain));
             this.pnlTool = new DevExpress.XtraEditors.PanelControl();
-            this.btnAddPlan = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAddScheduleTime = new DevExpress.XtraEditors.SimpleButton();
             this.lblStudentName = new DevExpress.XtraEditors.LabelControl();
             this.btnHome = new DevExpress.XtraEditors.SimpleButton();
             this.xtraTabbedMdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
@@ -45,6 +45,7 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.btnAddPlan = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.pnlTool)).BeginInit();
             this.pnlTool.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager)).BeginInit();
@@ -58,6 +59,7 @@
             this.pnlTool.Appearance.Options.UseBackColor = true;
             this.pnlTool.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pnlTool.Controls.Add(this.btnAddPlan);
+            this.pnlTool.Controls.Add(this.btnAddScheduleTime);
             this.pnlTool.Controls.Add(this.lblStudentName);
             this.pnlTool.Controls.Add(this.btnHome);
             this.pnlTool.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -67,22 +69,22 @@
             this.pnlTool.Size = new System.Drawing.Size(835, 85);
             this.pnlTool.TabIndex = 0;
             // 
-            // btnAddPlan
+            // btnAddScheduleTime
             // 
-            this.btnAddPlan.AppearancePressed.BackColor = System.Drawing.Color.Blue;
-            this.btnAddPlan.AppearancePressed.Options.UseBackColor = true;
-            this.btnAddPlan.AutoWidthInLayoutControl = true;
-            this.btnAddPlan.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddPlan.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnAddPlan.Image = ((System.Drawing.Image)(resources.GetObject("btnAddPlan.Image")));
-            this.btnAddPlan.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
-            this.btnAddPlan.Location = new System.Drawing.Point(85, 0);
-            this.btnAddPlan.Name = "btnAddPlan";
-            this.btnAddPlan.Size = new System.Drawing.Size(85, 85);
-            this.btnAddPlan.TabIndex = 2;
-            this.btnAddPlan.Tag = "Add Plan Event";
-            this.btnAddPlan.ToolTip = "Add Plan Event";
-            this.btnAddPlan.Click += new System.EventHandler(this.btnAddPlan_Click);
+            this.btnAddScheduleTime.AppearancePressed.BackColor = System.Drawing.Color.Blue;
+            this.btnAddScheduleTime.AppearancePressed.Options.UseBackColor = true;
+            this.btnAddScheduleTime.AutoWidthInLayoutControl = true;
+            this.btnAddScheduleTime.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddScheduleTime.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnAddScheduleTime.Image = ((System.Drawing.Image)(resources.GetObject("btnAddScheduleTime.Image")));
+            this.btnAddScheduleTime.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.btnAddScheduleTime.Location = new System.Drawing.Point(85, 0);
+            this.btnAddScheduleTime.Name = "btnAddScheduleTime";
+            this.btnAddScheduleTime.Size = new System.Drawing.Size(85, 85);
+            this.btnAddScheduleTime.TabIndex = 3;
+            this.btnAddScheduleTime.Tag = "Add Schedule Time Table Study";
+            this.btnAddScheduleTime.ToolTip = "Add Plan Event";
+            this.btnAddScheduleTime.Click += new System.EventHandler(this.btnAddScheduleTime_Click);
             // 
             // lblStudentName
             // 
@@ -197,6 +199,23 @@
             this.barDockControlRight.Location = new System.Drawing.Point(835, 0);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 566);
             // 
+            // btnAddPlan
+            // 
+            this.btnAddPlan.AppearancePressed.BackColor = System.Drawing.Color.Blue;
+            this.btnAddPlan.AppearancePressed.Options.UseBackColor = true;
+            this.btnAddPlan.AutoWidthInLayoutControl = true;
+            this.btnAddPlan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddPlan.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnAddPlan.Image = ((System.Drawing.Image)(resources.GetObject("btnAddPlan.Image")));
+            this.btnAddPlan.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.btnAddPlan.Location = new System.Drawing.Point(170, 0);
+            this.btnAddPlan.Name = "btnAddPlan";
+            this.btnAddPlan.Size = new System.Drawing.Size(85, 85);
+            this.btnAddPlan.TabIndex = 4;
+            this.btnAddPlan.Tag = "Add Plan Event";
+            this.btnAddPlan.ToolTip = "Add Plan Event";
+            this.btnAddPlan.Click += new System.EventHandler(this.btnAddPlan_Click);
+            // 
             // FMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -229,7 +248,6 @@
         private DevExpress.XtraEditors.SimpleButton btnHome;
         private DevExpress.XtraEditors.LabelControl lblStudentName;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager;
-        private DevExpress.XtraEditors.SimpleButton btnAddPlan;
         private DevExpress.XtraBars.BarManager barManagerAccount;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
@@ -240,5 +258,7 @@
         private DevExpress.XtraBars.BarButtonItem pbtnInitializerSubjectSchedule;
         private DevExpress.XtraBars.BarButtonItem pbtnSignOut;
         private DevExpress.XtraBars.PopupMenu popupMenuAccount;
+        private DevExpress.XtraEditors.SimpleButton btnAddScheduleTime;
+        private DevExpress.XtraEditors.SimpleButton btnAddPlan;
     }
 }

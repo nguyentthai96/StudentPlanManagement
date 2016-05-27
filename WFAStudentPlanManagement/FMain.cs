@@ -113,11 +113,11 @@ namespace WFAStudentPlanManagement
         {
             if (student==null)
             {
-                return;
+               return;
             }
-            FormPlan.FPlanAdd frmPlanAdd= new FormPlan.FPlanAdd(student.StudentId);
-            frmPlanAdd.StartPosition = FormStartPosition.CenterParent;
-            frmPlanAdd.ShowDialog();
+                FormPlan.FPlanAdd frmPlanAdd = new FormPlan.FPlanAdd(student.StudentId);
+                frmPlanAdd.StartPosition = FormStartPosition.CenterParent;
+                frmPlanAdd.ShowDialog();
         }
 
         private void pbtnEditStudentInfor_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -192,6 +192,23 @@ namespace WFAStudentPlanManagement
             FAccountEditPassword frmAccountPasswordChange = new FAccountEditPassword(student.StudentId);
             frmAccountPasswordChange.StartPosition = FormStartPosition.CenterParent;
             frmAccountPasswordChange.ShowDialog();
+        }
+
+        private void btnAddScheduleTime_Click(object sender, EventArgs e)
+        {
+            if (student == null)
+            {
+                MessageBox.Show("You are not login account....");
+                return;
+            }
+            if (this.Contains(frmScheduleTable)==false)
+            {
+                loadFormTableTime();
+            }
+            frmScheduleTable.Focus();
+            FScheduleRegisterSubject frmScheduleAdd = new FScheduleRegisterSubject(student.StudentId, semester.SemesterId);
+            frmScheduleAdd.StartPosition = FormStartPosition.CenterParent;
+            frmScheduleAdd.ShowDialog();
         }
     }
 }
